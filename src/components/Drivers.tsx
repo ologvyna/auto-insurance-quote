@@ -80,7 +80,7 @@ export default function Drivers() {
             <Drawer
                 isOpen={isOpen}
                 placement='right'
-                onClose={onClose}
+                onClose={() => { onClose(); clearEditor(); }}
             >
                 <DrawerContent>
                     <DrawerHeader>Add driver</DrawerHeader>
@@ -109,7 +109,7 @@ export default function Drivers() {
 
                     <Divider />
                     <DrawerFooter>
-                        <Button variant='outline' mr={3} onClick={onClose}>
+                        <Button variant='outline' mr={3} onClick={() => { onClose(); clearEditor(); }}>
                             Cancel
                         </Button>
                         <Button colorScheme='teal' isDisabled={!driver.firstName || !driver.lastName || !driver.licenseNumber} onClick={() => {

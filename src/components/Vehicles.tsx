@@ -81,7 +81,7 @@ export default function Vehicles() {
             <Drawer
                 isOpen={isOpen}
                 placement='right'
-                onClose={onClose}
+                onClose={() => { onClose(); clearEditor(); }}
             >
                 <DrawerContent>
                     <DrawerHeader>Add vehicle</DrawerHeader>
@@ -116,7 +116,7 @@ export default function Vehicles() {
 
                     <Divider />
                     <DrawerFooter>
-                        <Button variant='outline' mr={3} onClick={onClose}>
+                        <Button variant='outline' mr={3} onClick={() => { onClose(); clearEditor(); }}>
                             Cancel
                         </Button>
                         <Button colorScheme='teal' isDisabled={!vehicle.make || !vehicle.model || !vehicle.year || !vehicle.value} onClick={() => {
